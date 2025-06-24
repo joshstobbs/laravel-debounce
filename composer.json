@@ -1,5 +1,5 @@
 {
-    "name": "zackaj/laravel-debounce",
+    "name": "joshstobbs/laravel-debounce-patch",
     "description": "Debounce jobs ,notifications and artisan commands.",
     "license": "MIT",
     "minimum-stability": "dev",
