@@ -2,7 +2,7 @@
 
 namespace Zackaj\LaravelDebounce\Debouncers;
 
-use Carbon\Carbon;
+use Carbon\CarbonInterface;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Cache\Lock;
 use Illuminate\Contracts\Queue\ShouldBeUniqueUntilProcessing;
@@ -17,7 +17,7 @@ abstract class BaseDebouncer implements Debounceable, ShouldBeUniqueUntilProcess
 {
     use Dispatchable, InteractsWithQueue, Queueable;
 
-    protected ?Carbon $lastActivityTimesStamp = null;
+    protected ?CarbonInterface $lastActivityTimesStamp = null;
 
     /**
      * Handle the debouncer logic, main lifecycle
@@ -91,7 +91,7 @@ abstract class BaseDebouncer implements Debounceable, ShouldBeUniqueUntilProcess
     }
 
     // source of truth of the last activity registered
-    final public function getTimestamp(): ?Carbon
+    final public function getTimestamp(): ?CarbonInterface
     {
         return $this->lastActivityTimesStamp ??=
             $this->getLastActivityTimestamp() ??

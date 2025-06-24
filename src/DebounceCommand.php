@@ -2,7 +2,7 @@
 
 namespace Zackaj\LaravelDebounce;
 
-use Carbon\Carbon;
+use Carbon\CarbonInterface;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Bus\PendingDispatch;
 use Illuminate\Support\Facades\Artisan;
@@ -14,7 +14,7 @@ use Zackaj\LaravelDebounce\Trackers\Report;
 
 abstract class DebounceCommand extends Command implements DebounceableCommand
 {
-    public static function getLastActivityTimestamp(): ?Carbon
+    public static function getLastActivityTimestamp(): ?CarbonInterface
     {
         return null;
     }

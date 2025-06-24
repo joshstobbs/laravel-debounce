@@ -2,7 +2,7 @@
 
 namespace Zackaj\LaravelDebounce\Debouncers;
 
-use Carbon\Carbon;
+use Carbon\CarbonInterface;
 
 class JobDebouncer extends TrackerDebouncer
 {
@@ -57,7 +57,7 @@ class JobDebouncer extends TrackerDebouncer
         return $this->originalDelay;
     }
 
-    public function getLastActivityTimestamp(): ?Carbon
+    public function getLastActivityTimestamp(): ?CarbonInterface
     {
         if (! $this->isDebounceable($this->queuable)) {
             return parent::getLastActivityTimestamp();

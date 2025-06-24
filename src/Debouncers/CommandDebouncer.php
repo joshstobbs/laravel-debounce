@@ -2,7 +2,7 @@
 
 namespace Zackaj\LaravelDebounce\Debouncers;
 
-use Carbon\Carbon;
+use Carbon\CarbonInterface;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Context;
@@ -88,7 +88,7 @@ class CommandDebouncer extends TrackerDebouncer
         return explode(' ', $this->command)[0];
     }
 
-    public function getLastActivityTimestamp(): ?Carbon
+    public function getLastActivityTimestamp(): ?CarbonInterface
     {
 
         if (! $this->isDebounceable($this->getCommandFromSignature())) {

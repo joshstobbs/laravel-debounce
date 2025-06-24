@@ -2,12 +2,12 @@
 
 namespace Zackaj\LaravelDebounce\Contracts;
 
-use Carbon\Carbon;
+use Carbon\CarbonInterface;
 use Illuminate\Foundation\Bus\PendingDispatch;
 
 interface DebounceableJob
 {
-    public function getLastActivityTimestamp(): ?Carbon;
+    public function getLastActivityTimestamp(): ?CarbonInterface;
 
     public function after(): void;
 

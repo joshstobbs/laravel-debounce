@@ -2,7 +2,7 @@
 
 namespace Zackaj\LaravelDebounce;
 
-use Carbon\Carbon;
+use Carbon\CarbonInterface;
 use Illuminate\Foundation\Bus\PendingDispatch;
 use Zackaj\LaravelDebounce\Concerns\DebounceTrackable;
 use Zackaj\LaravelDebounce\Contracts\DebounceableJob;
@@ -12,7 +12,7 @@ abstract class DebounceJob implements DebounceableJob
 {
     use DebounceTrackable;
 
-    public function getLastActivityTimestamp(): ?Carbon
+    public function getLastActivityTimestamp(): ?CarbonInterface
     {
         return null;
     }

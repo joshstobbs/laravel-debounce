@@ -2,11 +2,11 @@
 
 namespace Zackaj\LaravelDebounce\Contracts;
 
-use Carbon\Carbon;
+use Carbon\CarbonInterface;
 
 interface DebounceableCommand
 {
-    public static function getLastActivityTimestamp(): ?Carbon;
+    public static function getLastActivityTimestamp(): ?CarbonInterface;
 
     public static function before(): void;
 

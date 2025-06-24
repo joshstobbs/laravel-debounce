@@ -2,7 +2,7 @@
 
 namespace Zackaj\LaravelDebounce\Debouncers;
 
-use Carbon\Carbon;
+use Carbon\CarbonInterface;
 use Zackaj\LaravelDebounce\Contracts\Trackable;
 use Zackaj\LaravelDebounce\DebounceCommand;
 use Zackaj\LaravelDebounce\DebounceJob;
@@ -45,12 +45,12 @@ abstract class TrackerDebouncer extends BaseDebouncer
         }
     }
 
-    public function getLastActivityTimestamp(): ?Carbon
+    public function getLastActivityTimestamp(): ?CarbonInterface
     {
         return $this->getReport()?->occurrences->last()?->happenedAt;
     }
 
-    public function getLastActivityTimestampFallback(): ?Carbon
+    public function getLastActivityTimestampFallback(): ?CarbonInterface
     {
         return now()->subSeconds($this->getOriginalDelay());
     }

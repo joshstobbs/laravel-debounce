@@ -2,7 +2,7 @@
 
 namespace Zackaj\LaravelDebounce;
 
-use Carbon\Carbon;
+use Carbon\CarbonInterface;
 use Illuminate\Foundation\Bus\PendingDispatch;
 use Illuminate\Notifications\Notification;
 use Zackaj\LaravelDebounce\Concerns\DebounceTrackable;
@@ -20,7 +20,7 @@ abstract class DebounceNotification extends Notification implements Debounceable
     /**
      * @param  \Illuminate\Support\Collection|array|mixed  $notifiables
      */
-    public function getLastActivityTimestamp(mixed $notifiables): ?Carbon
+    public function getLastActivityTimestamp(mixed $notifiables): ?CarbonInterface
     {
         return null;
     }

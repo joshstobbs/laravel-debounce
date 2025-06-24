@@ -2,7 +2,7 @@
 
 namespace Zackaj\LaravelDebounce\Debouncers;
 
-use Carbon\Carbon;
+use Carbon\CarbonInterface;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Notification as FacadesNotification;
 use Zackaj\LaravelDebounce\DebounceNotification;
@@ -32,7 +32,7 @@ class NotificationDebouncer extends TrackerDebouncer
         }
     }
 
-    public function getLastActivityTimestamp(): ?Carbon
+    public function getLastActivityTimestamp(): ?CarbonInterface
     {
         if (! $this->isDebounceable($this->notification)) {
             return parent::getLastActivityTimestamp();

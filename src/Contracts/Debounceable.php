@@ -2,7 +2,7 @@
 
 namespace Zackaj\LaravelDebounce\Contracts;
 
-use Carbon\Carbon;
+use Carbon\CarbonInterface;
 
 interface Debounceable
 {
@@ -22,11 +22,11 @@ interface Debounceable
 
     public function afterExecute(): void;
 
-    public function getTimestamp(): ?Carbon;
+    public function getTimestamp(): ?CarbonInterface;
 
-    public function getLastActivityTimestamp(): ?Carbon;
+    public function getLastActivityTimestamp(): ?CarbonInterface;
 
-    public function getLastActivityTimestampFallback(): ?Carbon;
+    public function getLastActivityTimestampFallback(): ?CarbonInterface;
 
     public function getOriginalDelay(): int;
 
